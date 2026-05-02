@@ -36,4 +36,23 @@ class ExercisesController extends Controller
 
         return redirect('exercise')->with('success', 'Latihan berhasil dihapus!');
     }
+
+    function edit($id) {
+        $data = Exercises::findOrFail($id);
+        return view('edit_form', compact('data'));
+    }
+
+    function update(Request $request, $id) {
+        $validated = $request->validate([
+            'name'      => 'required|string',
+            'weight'    => 'required|integer',
+            'reps'      => 'required|integer',
+            'notes'     => 'required|string',  
+        ]);
+
+        $data = Exercises::findOrFail($id);
+        $data->update($validated);
+
+        return redirect()->route('exercise.index')->with('success', 'Latihan baru berhasil diupdate!');
+    }
 }

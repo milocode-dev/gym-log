@@ -23,11 +23,11 @@
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-slate-100">
-                        <th class="p-3 border">Exercise</th>
-                        <th class="p-3 border">Weight (kg)</th>
-                        <th class="p-3 border">Reps</th>
-                        <th class="p-3 border">Notes</th>
-                        <th class="p-3 border">Action</th>
+                        <th class="p-3 border text-center">Exercise</th>
+                        <th class="p-3 border text-center">Weight (kg)</th>
+                        <th class="p-3 border text-center">Reps</th>
+                        <th class="p-3 border text-center">Notes</th>
+                        <th class="p-3 border text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,7 @@
                         <td class="p-3 border">{{ $data->notes }}</td>
                         <td class="p-3 border text-center">
                             <form action="{{ route('exercise.destroy', $data->id) }}" method="POST">
+                            <a href="{{ route('exercise.edit', $data->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" 
