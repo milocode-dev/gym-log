@@ -27,6 +27,13 @@ class ExercisesController extends Controller
 
         $newData = Exercises::create($validated);
 
-        return redirect()->route('index');
+        return redirect()->route('exercise.index')->with('success', 'Latihan baru berhasil dibuat!');
+    }
+
+    function destroy($id) {
+        $data = Exercises::findOrFail($id);
+        $data->delete();
+
+        return redirect('exercise')->with('success', 'Latihan berhasil dihapus!');
     }
 }

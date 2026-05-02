@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ExercisesController::class, 'index'])->name('index');
-Route::get('/create_form', [ExercisesController::class, 'form'])->name('create.form');
+Route::get('/exercise', [ExercisesController::class, 'index'])->name('exercise.index');
+Route::get('/exercise/create', [ExercisesController::class, 'form'])->name('exercise.form');
 Route::post('/exercise', [ExercisesController::class, 'store'])->name('exercise.store');
+Route::delete('/exercise/{id}', [ExercisesController::class, 'destroy'])->name('exercise.destroy');
