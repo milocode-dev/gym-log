@@ -37,6 +37,7 @@
 
             <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Save Workout</button>
         </form>
+        <a href="{{ route('exercise.index') }}" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Back To Workout</a>
     </div>
 </body>
 </html>
